@@ -4,10 +4,14 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "test": "jest"
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.2",
+    "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5"

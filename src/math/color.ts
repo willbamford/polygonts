@@ -3,7 +3,7 @@ import { equals, clamp } from './common'
 // 0 - 1
 type ColorChannel = number
 
-type Color = {
+export type Color = {
   r: ColorChannel
   g: ColorChannel
   b: ColorChannel
