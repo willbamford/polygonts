@@ -14,7 +14,7 @@ export const colorCreate = (r: number, g: number, b: number): Color => {
 }
 
 export const colorEquals = (a: Color, b: Color): boolean => {
-  return equals(a.r, b.r) && equals(b.g, b.g) && equals(a.b, b.b)
+  return equals(a.r, b.r) && equals(a.g, b.g) && equals(a.b, b.b)
 }
 
 export const colorAdd = (
@@ -65,7 +65,7 @@ export const colorClamp = (a: Color, out: Color = colorCreate(0, 0, 0)) => {
   out.r = clamp(a.r, 0.0, 1.0)
   out.g = clamp(a.g, 0.0, 1.0)
   out.b = clamp(a.b, 0.0, 1.0)
-  return this
+  return out
 }
 
 export const colorFromHex = (hex: number): Color => {
