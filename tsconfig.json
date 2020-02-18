@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "lib": ["dom", "es2019"],
+    "module": "esnext",
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"]
+}
