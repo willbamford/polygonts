@@ -3,6 +3,18 @@ import { Matrix3 } from './math/Matrix3'
 import { Matrix4 } from './math/Matrix4'
 import { Fn } from './Fn'
 
+type Time = number
+
+type EntityParameters = {
+  position?: Vector3
+  rotation?: Matrix3
+  scale?: Vector3
+  up?: Vector3
+  right?: Vector3
+  forward?: Vector3
+  tags?: string[]
+}
+
 export class Entity {
   static type = 'entity'
   parent: Entity | null
@@ -18,15 +30,7 @@ export class Entity {
   children: Entity[]
   tags: string[]
 
-  constructor(opts: {
-    position?: Vector3
-    rotation?: Matrix3
-    scale?: Vector3
-    up?: Vector3
-    right?: Vector3
-    forward?: Vector3
-    tags?: string[]
-  }) {
+  constructor(opts: EntityParameters = {}) {
     this.parent = null
     this.position = opts.position || new Vector3(0, 0, 0)
     this.rotation = opts.rotation || Matrix3.IDENTITY.clone()
@@ -58,7 +62,7 @@ export class Entity {
     return all.length > 0 ? all[0] : null
   }
 
-  update(delta: number): void {
+  update(delta: Time): void {
     this.updateLocalTransform()
     this.updateWorldTransform()
     this.worldPosition.applyPosition(this.worldTransform)

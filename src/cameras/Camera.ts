@@ -9,7 +9,7 @@ export class Camera extends Entity {
   viewTransform: Matrix4
   projectionTransform: Matrix4
 
-  constructor(opts: CameraParameters) {
+  constructor(opts: CameraParameters = {}) {
     super(opts)
 
     this.viewTransform = new Matrix4()

@@ -14,7 +14,7 @@ export class PerspectiveCamera extends Camera {
   nearZ: number
   farZ: number
 
-  constructor(opts: PerspectiveCameraParameters) {
+  constructor(opts: PerspectiveCameraParameters = {}) {
     super(opts)
 
     this.fieldOfViewY = opts.fieldOfViewY || 60

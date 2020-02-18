@@ -14,7 +14,7 @@ export class OrthographicCamera extends Camera {
   nearZ: number
   farZ: number
 
-  constructor(opts: OrthographicCameraParameters) {
+  constructor(opts: OrthographicCameraParameters = {}) {
     super(opts)
 
     this.width = opts.width || 6.4
