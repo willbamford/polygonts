@@ -1,9 +1,9 @@
 import { Vector3 } from './math/Vector3'
 import { Fn } from './Fn'
 
-type UInt = number
+type Int = number
 
-type Face = UInt[]
+export type Face = Int[]
 
 type MeshParameters = {
   vertices?: Vector3[]

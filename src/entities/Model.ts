@@ -1,5 +1,5 @@
-import { Entity } from 'Entity'
-import { Fn } from 'Fn'
+import { Entity } from '../Entity'
+import { Fn } from '../Fn'
 import { Vector3 } from '../math/Vector3'
 import { Polygon } from './Polygon'
 import { Mesh } from '../Mesh'
@@ -15,7 +15,7 @@ type ModelParameters = ConstructorParameters<typeof Entity>[0] & {
 }
 
 export class Model extends Entity {
-  static type = 'model'
+  type = 'model'
 
   vertices: Vector3[]
   worldVertices: Vector3[]
@@ -66,7 +66,7 @@ export class Model extends Entity {
       screenVertices.push(new Vector3(0, 0, 0))
     })
 
-    const polygons = []
+    const polygons: Polygon[] = []
 
     // todo: replace with map
     mesh.eachFace((_vertices, vertexIndices) => {

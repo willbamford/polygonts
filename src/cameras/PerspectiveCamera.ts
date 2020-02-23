@@ -69,10 +69,10 @@ export class PerspectiveCamera extends Camera {
     farZ: number,
     transform: Matrix4,
   ): Matrix4 {
-    var maxY = nearZ * Math.tan((fieldOfViewY * Math.PI) / 360.0)
-    var minY = -maxY
-    var minX = minY * aspectRatio
-    var maxX = -minX
+    const maxY = nearZ * Math.tan((fieldOfViewY * Math.PI) / 360.0)
+    const minY = -maxY
+    const minX = minY * aspectRatio
+    const maxX = -minX
     return PerspectiveCamera.createFrustum(
       minX,
       maxX,

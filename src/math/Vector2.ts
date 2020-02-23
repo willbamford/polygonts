@@ -50,8 +50,8 @@ export class Vector2 {
   }
 
   distanceToSquared(v: Vector2): number {
-    var dx = v.x - this.x
-    var dy = v.y - this.y
+    const dx = v.x - this.x
+    const dy = v.y - this.y
     return dx * dx + dy * dy
   }
 

@@ -32,8 +32,8 @@ export class OrthographicCamera extends Camera {
     farZ: number,
     transform: Matrix4 = new Matrix4(),
   ): Matrix4 {
-    var m = transform
-    var depthZ = farZ - nearZ
+    const m = transform
+    const depthZ = farZ - nearZ
     m.a = 2 / width
     m.b = 0
     m.c = 0

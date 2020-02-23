@@ -1,5 +1,5 @@
-import { Entity } from 'Entity'
-import { Material } from 'Material'
+import { Entity } from '../Entity'
+import { Material } from '../Material'
 import { Vector3 } from '../math/Vector3'
 import { Color } from '../math/Color'
 
@@ -14,7 +14,7 @@ type PolygonParameters = ConstructorParameters<typeof Entity>[0] & {
 type Time = number
 
 export class Polygon extends Entity {
-  static type = 'polygon'
+  type = 'polygon'
 
   vertices: Vector3[]
   worldVertices: Vector3[]

@@ -16,7 +16,7 @@ type EntityParameters = {
 }
 
 export class Entity {
-  static type = 'entity'
+  type = 'entity'
   parent: Entity | null
   position: Vector3
   rotation: Matrix3

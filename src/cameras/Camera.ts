@@ -5,7 +5,7 @@ import { Vector3 } from '../math/Vector3'
 type CameraParameters = ConstructorParameters<typeof Entity>[0]
 
 export class Camera extends Entity {
-  static type = 'camera'
+  type = 'camera'
   viewTransform: Matrix4
   projectionTransform: Matrix4
 

@@ -21,8 +21,8 @@ export class Vector3 {
   static createFromArrays = (ia: [number, number, number][]): Vector3[] => {
     const oa: Vector3[] = []
     if (ia) {
-      var len = ia.length
-      for (var i = 0; i < len; i += 1) {
+      const len = ia.length
+      for (let i = 0; i < len; i += 1) {
         const a = ia[i]
         oa.push(new Vector3(a[0], a[1], a[2]))
       }
@@ -108,9 +108,9 @@ export class Vector3 {
   }
 
   crossProduct(v: Vector3): Vector3 {
-    var x = this.x,
-      y = this.y,
-      z = this.z
+    const x = this.x
+    const y = this.y
+    const z = this.z
     this.x = y * v.z - z * v.y
     this.y = z * v.x - x * v.z
     this.z = x * v.y - y * v.x
@@ -122,7 +122,7 @@ export class Vector3 {
   }
 
   normalise(): Vector3 {
-    var mag = this.magnitude()
+    const mag = this.magnitude()
     if (mag !== 0) {
       this.x /= mag
       this.y /= mag
@@ -135,11 +135,10 @@ export class Vector3 {
     return this.crossProduct(v).normalise()
   }
 
-  // todo: ...
   applyMatrix4(m: Matrix4): Vector3 {
-    var x = this.x,
-      y = this.y,
-      z = this.z
+    const x = this.x
+    const y = this.y
+    const z = this.z
     this.x = x * m.a + y * m.b + z * m.c
     this.y = x * m.e + y * m.f + z * m.g
     this.z = x * m.i + y * m.j + z * m.k
@@ -147,13 +146,13 @@ export class Vector3 {
   }
 
   applyProjection(m: Matrix4): Vector3 {
-    var x = this.x,
-      y = this.y,
-      z = this.z
+    const x = this.x
+    const y = this.y
+    const z = this.z
     this.x = x * m.a + y * m.b + z * m.c + m.d
     this.y = x * m.e + y * m.f + z * m.g + m.h
     this.z = x * m.i + y * m.j + z * m.k + m.l
-    var vw = x * m.m + y * m.n + z * m.o + m.p
+    const vw = x * m.m + y * m.n + z * m.o + m.p
     if (vw !== 0 && vw !== 1) {
       this.x /= vw
       this.y /= vw
@@ -170,15 +169,15 @@ export class Vector3 {
   }
 
   center(vectors: Vector3[]): Vector3 {
-    var ax = 0,
-      ay = 0,
-      az = 0
+    let ax = 0
+    let ay = 0
+    let az = 0
+
     if (vectors) {
-      var len = vectors.length
-      var i = len
-      var v
+      const len = vectors.length
+      let i = len
       while (--i >= 0) {
-        v = vectors[i]
+        const v = vectors[i]
         ax += v.x
         ay += v.y
         az += v.z
