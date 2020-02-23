@@ -1,5 +1,5 @@
 import { Surface } from './Surface'
-import { Vector2 } from 'math/Vector2'
+import { Vector3 } from 'math/Vector3'
 import { Color } from 'math/Color'
 
 type CanvasSurfaceParameters = {
@@ -64,7 +64,7 @@ export class CanvasSurface implements Surface {
   clear(): void {
     throw new Error('Method not implemented.')
   }
-  polygon(points: Vector2[], color: Color): void {
+  polygon(points: Vector3[], color: Color): void {
     const len = points.length
 
     const ctx = this.context
@@ -81,7 +81,7 @@ export class CanvasSurface implements Surface {
     ctx.fill()
   }
 
-  line(from: Vector2, to: Vector2, color: Color): void {
+  line(from: Vector3, to: Vector3, color: Color): void {
     const ctx = this.context
     ctx.strokeStyle = color.getHexStyle()
     ctx.beginPath()
