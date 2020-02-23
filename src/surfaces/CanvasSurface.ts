@@ -62,8 +62,9 @@ export class CanvasSurface implements Surface {
   }
 
   clear(): void {
-    throw new Error('Method not implemented.')
+    this.context.clearRect(0, 0, this.width, this.height)
   }
+
   polygon(points: Vector3[], color: Color): void {
     const len = points.length
 

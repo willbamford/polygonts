@@ -1,9 +1,9 @@
-import { Entity } from 'Entity'
-import { Light } from 'lights/Light'
-import { Polygon } from 'entities/Polygon'
-import { Camera } from 'cameras/Camera'
-import { Model } from 'entities/Model'
-import { Fn } from 'Fn'
+import { Entity } from './Entity'
+import { Light } from './lights/Light'
+import { Polygon } from './entities/Polygon'
+import { Camera } from './cameras/Camera'
+import { Model } from './entities/Model'
+import { Fn } from './Fn'
 
 type Time = number
 

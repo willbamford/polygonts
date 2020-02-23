@@ -98,7 +98,7 @@ export class Model extends Entity {
     }
   }
 
-  static createFromMesh(mesh: Mesh, opts: ModelParameters): Model {
+  static createFromMesh(mesh: Mesh, opts: ModelParameters = {}): Model {
     const mergedOpts = Fn.merge(opts, this.getOptsForMesh(mesh))
     return new Model(mergedOpts)
   }

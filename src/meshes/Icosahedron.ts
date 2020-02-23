@@ -1,4 +1,4 @@
-import { Mesh } from 'Mesh'
+import { Mesh } from '../Mesh'
 import { Vector3 } from '../math/Vector3'
 
 // See: http://gamedev.stackexchange.com/a/31312/31803

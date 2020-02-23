@@ -1,5 +1,5 @@
-import { Entity } from 'Entity'
-import { Color } from 'math/Color'
+import { Entity } from '../Entity'
+import { Color } from '../math/Color'
 
 type LightParameters = ConstructorParameters<typeof Entity>[0] & {
   color?: Color

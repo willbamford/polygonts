@@ -1,7 +1,7 @@
 import { Icosahedron } from './Icosahedron'
 import { Vector3 } from '../math/Vector3'
-import { Fn } from 'Fn'
-import { Mesh, Face } from 'Mesh'
+import { Fn } from '../Fn'
+import { Mesh, Face } from '../Mesh'
 
 type Int = number
 

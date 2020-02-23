@@ -1,11 +1,11 @@
-import { Surface } from 'surfaces/Surface'
-import { Scene } from 'Scene'
-import { Vector3 } from 'math/Vector3'
-import { Polygon } from 'entities/Polygon'
-import { Camera } from 'cameras/Camera'
-import { Light } from 'lights/Light'
-import { Model } from 'entities/Model'
-import { Color } from 'math/Color'
+import { Surface } from './surfaces/Surface'
+import { Scene } from './Scene'
+import { Vector3 } from './math/Vector3'
+import { Polygon } from './entities/Polygon'
+import { Camera } from './cameras/Camera'
+import { Light } from './lights/Light'
+import { Model } from './entities/Model'
+import { Color } from './math/Color'
 
 type RendererParameters = {
   surface: Surface
@@ -52,8 +52,8 @@ export class Renderer {
     this.cull(polygons, camera)
     this.depthSort(polygons)
     this.light(polygons, lights, camera)
-    // this.project(models, camera, surface)
-    // this.draw(polygons, surface)
+    this.project(models, camera, surface)
+    this.draw(polygons, surface)
 
     surface.render()
   }
