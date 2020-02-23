@@ -2,9 +2,6 @@ type Time = number
 type Int = number
 
 type FpsCounterParameters = {
-  time: number
-  frame: Int
-  framesPerSecond: Int
   sampleSize?: Int
   callback: (fps: Int) => void
 }
