@@ -2,7 +2,7 @@ import { Vector3 } from '../math/Vector3'
 
 import { Mesh } from 'Mesh'
 
-export class Cube {
+export class CubeMesh {
   static create(): Mesh {
     const vertices = Vector3.createFromArrays([
       [1, 1, 1], // 0

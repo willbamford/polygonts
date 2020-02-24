@@ -5,7 +5,7 @@ import { Vector3 } from '../math/Vector3'
 const X = 0.525731112119133606
 const Z = 0.850650808352039932
 
-export class Icosahedron {
+export class IcosahedronMesh {
   static create(): Mesh {
     const vertices = Vector3.createFromArrays([
       [-X, 0, Z],

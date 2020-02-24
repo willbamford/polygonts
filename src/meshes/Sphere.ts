@@ -1,11 +1,11 @@
-import { Icosahedron } from './Icosahedron'
+import { IcosahedronMesh } from './Icosahedron'
 import { Vector3 } from '../math/Vector3'
 import { Fn } from '../Fn'
 import { Mesh, Face } from '../Mesh'
 
 type Int = number
 
-type SphereParameters = {
+type SphereMeshParameters = {
   levelOfDetail?: Int
   spikiness?: number
 }
@@ -14,9 +14,9 @@ const key = (i1: Int, i2: Int): string => {
   return i1 < i2 ? i1 + ',' + i2 : i2 + ',' + i1
 }
 
-export class Sphere {
-  static create(opts: SphereParameters): Mesh {
-    const icosahedron = Icosahedron.create()
+export class SphereMesh {
+  static create(opts: SphereMeshParameters): Mesh {
+    const icosahedron = IcosahedronMesh.create()
     const vs = icosahedron.vertices
     let fs = icosahedron.faces
     const vertices = vs

@@ -1,16 +1,18 @@
-import { Sphere } from '../meshes/Sphere'
-import { Model } from '../entities/Model'
-import { Fn } from '../Fn'
-import { Material } from '../Material'
-import { Color } from '../math/Color'
-import { Vector3 } from '../math/Vector3'
-import { Scene } from '../Scene'
-import { PerspectiveCamera } from '../cameras/PerspectiveCamera'
-import { Light } from '../lights/Light'
-import { Entity } from '../Entity'
-import { Renderer } from '../Renderer'
-import { Engine } from '../Engine'
-import { CanvasSurface } from '../surfaces/CanvasSurface'
+import {
+  Sphere,
+  Model,
+  Fn,
+  Material,
+  Color,
+  Vector3,
+  Scene,
+  PerspectiveCamera,
+  Light,
+  Entity,
+  Renderer,
+  Engine,
+  CanvasSurface,
+} from '../'
 
 export class ShinyBallDemo {
   constructor() {

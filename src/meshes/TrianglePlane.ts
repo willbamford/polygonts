@@ -3,14 +3,14 @@ import { Vector3 } from '../math/Vector3'
 
 type Int = number
 
-type TrianglePlaneParameters = {
+type TrianglePlaneMeshParameters = {
   triangleHeight?: number
   numWidthSegments?: Int
   numHeightSegments?: Int
 }
 
-export class TrianglePlane {
-  static create(opts: TrianglePlaneParameters): Mesh {
+export class TrianglePlaneMesh {
+  static create(opts: TrianglePlaneMeshParameters): Mesh {
     const triangleHeight = opts.triangleHeight || 1
     const numWidthSegments = opts.numWidthSegments || 4
     const numHeightSegments = opts.numHeightSegments || 4

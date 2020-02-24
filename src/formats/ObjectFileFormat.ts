@@ -1,6 +1,6 @@
 import { Mesh } from '../Mesh'
-import { Fn } from 'Fn'
-import { Vector3 } from 'math/Vector3'
+import { Fn } from '../Fn'
+import { Vector3 } from '../math/Vector3'
 
 const line = (s: string): string => {
   return s + '\n'
