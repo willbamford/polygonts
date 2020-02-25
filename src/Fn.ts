@@ -77,9 +77,4 @@ export class Fn {
     }
     return result as First & Second
   }
-
-  // todo: move
-  static trim = (s: string): string => {
-    return s.replace(/^\s+|\s+$/g, '')
-  }
 }
