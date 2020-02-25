@@ -2,7 +2,7 @@ Arguments:
   /Users/will.bamford/.nvm/versions/node/v12.15.0/bin/node /usr/local/Cellar/yarn/1.21.1/libexec/bin/yarn.js add Mesh
 
 PATH: 
-  /var/folders/dl/30v9_5wx33b8jp7ktj_9lts1pcc3d5/T/yarn--1582530050982-0.3711384828130537:/Users/will.bamford/Code/me/polygonts/node_modules/.bin:/Users/will.bamford/.config/yarn/link/node_modules/.bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+  /var/folders/dl/30v9_5wx33b8jp7ktj_9lts1pcc3d5/T/yarn--1582616518049-0.6660972830436407:/Users/will.bamford/Code/me/polygonts/node_modules/.bin:/Users/will.bamford/.config/yarn/link/node_modules/.bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/will.bamford/.nvm/versions/node/v12.15.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 
 Yarn version: 
   1.21.1

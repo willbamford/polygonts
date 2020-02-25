@@ -1,6 +1,6 @@
 import { Vector3 } from '../math/Vector3'
 
-import { Mesh } from 'Mesh'
+import { Mesh } from '../Mesh'
 
 export class CubeMesh {
   static create(): Mesh {

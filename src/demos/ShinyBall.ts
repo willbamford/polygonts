@@ -1,5 +1,5 @@
 import {
-  Sphere,
+  SphereMesh,
   Model,
   Fn,
   Material,
@@ -12,6 +12,7 @@ import {
   Renderer,
   Engine,
   CanvasSurface,
+  SvgSurface,
 } from '../'
 
 export class ShinyBallDemo {
@@ -19,7 +20,7 @@ export class ShinyBallDemo {
     const container = document.createElement('div')
     document.body.appendChild(container)
 
-    const mesh = Sphere.create({
+    const mesh = SphereMesh.create({
       levelOfDetail: 3,
       spikiness: 0.0,
     })
@@ -35,7 +36,7 @@ export class ShinyBallDemo {
     const height = 480
     const aspectRatio = width / height
 
-    const surface = new CanvasSurface({
+    const surface = new SvgSurface({
       container,
       width,
       height,

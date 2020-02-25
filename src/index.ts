@@ -7,9 +7,10 @@ export {
   CubeMesh,
   IcosahedronMesh,
   SphereMesh,
-  TrianglePlanMesh,
+  TrianglePlaneMesh,
 } from './meshes'
 export { CanvasSurface } from './surfaces'
+export { SvgSurface } from './surfaces'
 export { Engine } from './Engine'
 export { Entity } from './Entity'
 export { Fn } from './Fn'
