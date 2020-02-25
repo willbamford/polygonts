@@ -6,6 +6,8 @@ const line = (s: string): string => {
   return s + '\n'
 }
 
+const trim = (s: string): string => s.replace(/^\s+|\s+$/g, '')
+
 export class ObjectFileFormat {
   static loadMesh(data) {
     const lines: string[] = data.split('\n')
@@ -23,7 +25,7 @@ export class ObjectFileFormat {
     let i: number
 
     lines.forEach(value => {
-      const line = Fn.trim(value).replace(/\s{2,}/g, ' ')
+      const line = trim(value).replace(/\s{2,}/g, ' ')
       if (
         !line ||
         line.length === 0 || // Empty line

@@ -1,7 +1,5 @@
 import { PMath } from './PMath'
-
-// todo: ...
-type Matrix4 = any
+import { Matrix4 } from './Matrix4'
 
 export class Vector3 {
   x: number

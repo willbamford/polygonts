@@ -64,8 +64,6 @@ export class Model extends Entity {
     })
 
     const polygons: Polygon[] = []
-
-    // todo: replace with map
     mesh.eachFace((_vertices, vertexIndices) => {
       const vs = []
       const wvs = []
