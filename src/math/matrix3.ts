@@ -169,7 +169,7 @@ export class Matrix3 {
     const s = Math.sin(az)
     this.a = c
     this.b = -s
-    this.c = s
+    this.c = 0
     this.d = s
     this.e = c
     this.f = 0

@@ -20,8 +20,10 @@ export { Mesh } from './Mesh'
 export { Renderer } from './Renderer'
 export { Scene } from './Scene'
 
-import { ShinyBallDemo } from './demos/ShinyBall'
-import { SpikyBallDemo } from './demos/SpikyBall'
+// import { ShinyBallDemo } from './demos/ShinyBall'
+// import { SpikyBallDemo } from './demos/SpikyBall'
+import { IcosahedronDemo } from './demos/Icosahedron'
 
 // const demo = new ShinyBallDemo()
-const demo = new SpikyBallDemo()
+// const demo = new SpikyBallDemo()
+const demo = new IcosahedronDemo()
