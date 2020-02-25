@@ -80,13 +80,9 @@ export class IcosahedronDemo {
       angle += delta / 1000
       if (angle > 360) angle -= 360
 
-      // scale = Math.max(1, scale - 0.0005 * delta)
-
-      // model.rotation.setRotationY(angle)
-      model.rotation.setRotationZ(angle)
+      model.rotation.setRotation(angle, angle * 0.5, 0)
 
       camera.lookAt(target)
-
       scene.update(delta)
       renderer.render()
     }

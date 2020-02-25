@@ -40,6 +40,18 @@ export class Matrix3 {
     return new Matrix3(this.toArrays())
   }
 
+  copy(m: Matrix3) {
+    this.a = m.a
+    this.b = m.b
+    this.c = m.c
+    this.d = m.d
+    this.e = m.e
+    this.f = m.f
+    this.g = m.g
+    this.h = m.h
+    this.i = m.i
+  }
+
   toString(): string {
     let s = ''
     this.toArrays().forEach(function(row) {
@@ -134,7 +146,7 @@ export class Matrix3 {
     return m
   }
 
-  setRotationX(ax: number) {
+  setRotationX(ax: number): Matrix3 {
     const c = Math.cos(ax)
     const s = Math.sin(ax)
     this.a = 1
@@ -149,7 +161,7 @@ export class Matrix3 {
     return this
   }
 
-  setRotationY(ay: number) {
+  setRotationY(ay: number): Matrix3 {
     const c = Math.cos(ay)
     const s = Math.sin(ay)
     this.a = c
@@ -164,7 +176,7 @@ export class Matrix3 {
     return this
   }
 
-  setRotationZ(az: number) {
+  setRotationZ(az: number): Matrix3 {
     const c = Math.cos(az)
     const s = Math.sin(az)
     this.a = c
@@ -177,6 +189,24 @@ export class Matrix3 {
     this.h = 0
     this.i = 1
     return this
+  }
+
+  setRotation(ax: number, ay: number, az: number): Matrix3 {
+    const x = Matrix3.identity().setRotationX(ax)
+    const y = Matrix3.identity().setRotationY(ay)
+    const z = Matrix3.identity().setRotationZ(az)
+    this.copy(x.multiply(y).multiply(z))
+    return this
+  }
+
+  rotateX(ax: number): Matrix3 {
+    const v = Matrix3.IDENTITY.clone()
+    this.copy(this.multiply(v.setRotationX(ax)))
+    return this
+  }
+
+  static identity(): Matrix3 {
+    return Matrix3.IDENTITY.clone()
   }
 
   static IDENTITY = new Matrix3(IDENTITY)
