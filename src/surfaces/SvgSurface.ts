@@ -74,11 +74,10 @@ export class SvgSurface implements Surface {
   }
 
   polygon(points: Vector3[], color: Color): void {
-    const self = this
     let encodedPoints = ''
-    Fn.each(points, function(point) {
-      const x = point.x + self.cx
-      const y = -point.y + self.cy
+    points.forEach(point => {
+      const x = point.x + this.cx
+      const y = -point.y + this.cy
       encodedPoints += `${x},${y} `
     })
     const polygon = this.createEl('polygon', {

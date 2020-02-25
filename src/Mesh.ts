@@ -20,22 +20,14 @@ export class Mesh {
   }
 
   eachFace(fn: (vertices: Vector3[], face: Face) => void): void {
-    // todo: remove
-    const self = this
-    Fn.each(this.faces, face => {
-      const vertices = self.getVerticesForFace(face)
+    this.faces.forEach(face => {
+      const vertices = this.getVerticesForFace(face)
       fn(vertices, face)
     })
   }
 
   getVerticesForFace(face: Face): Vector3[] {
-    // todo: remove
-    const self = this
-    const vertices: Vector3[] = []
-    Fn.each(face, index => {
-      vertices.push(self.vertices[index])
-    })
-    return vertices
+    return face.map(i => this.vertices[i])
   }
 
   normalise(): void {
@@ -47,8 +39,7 @@ export class Mesh {
       let minZ = Number.MAX_VALUE
       let maxZ = Number.MIN_VALUE
 
-      Fn.each(this.vertices, vertex => {
-        // todo: use clamp (Math.min ... max)
+      this.vertices.forEach(vertex => {
         if (vertex.x < minX) minX = vertex.x
         if (vertex.x > maxX) maxX = vertex.x
         if (vertex.y < minY) minY = vertex.y
@@ -66,7 +57,7 @@ export class Mesh {
       const tz = 0.5 * (minZ + maxZ)
       const scale = 2 / dmax
 
-      Fn.each(this.vertices, vertex => {
+      this.vertices.forEach(vertex => {
         vertex.x -= tx
         vertex.y -= ty
         vertex.z -= tz

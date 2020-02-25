@@ -22,7 +22,7 @@ export class ObjectFileFormat {
     let faceIndices: number[]
     let i: number
 
-    Fn.each(lines, value => {
+    lines.forEach(value => {
       const line = Fn.trim(value).replace(/\s{2,}/g, ' ')
       if (
         !line ||
@@ -71,12 +71,12 @@ export class ObjectFileFormat {
     let s = ''
     s += line('OFF')
     s += line(mesh.vertices.length + ' ' + mesh.faces.length + ' 0')
-    Fn.each(mesh.vertices, vertex => {
+    mesh.vertices.forEach(vertex => {
       s += line(vertex.x + ' ' + vertex.y + ' ' + vertex.z)
     })
-    Fn.each(mesh.faces, face => {
+    mesh.faces.forEach(face => {
       let ln = face.length + ' '
-      Fn.each(face, index => {
+      face.forEach(index => {
         ln += index + ' '
       })
       s += line(ln)

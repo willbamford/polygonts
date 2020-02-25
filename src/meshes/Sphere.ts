@@ -81,7 +81,7 @@ export class SphereMesh {
     let lod = levelOfDetail
     while (--lod >= 0) {
       faces = []
-      Fn.each(fs, faceFn)
+      fs.forEach(faceFn)
       fs = faces
     }
 

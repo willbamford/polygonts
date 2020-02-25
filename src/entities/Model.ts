@@ -31,12 +31,9 @@ export class Model extends Entity {
     this.viewVertices = opts.viewVertices || [] // View space
     this.screenVertices = opts.screenVertices || [] // Clip space
 
-    const self = this
     this.polygons = opts.polygons || []
-
-    // todo: replace .each with Array.forEach
-    Fn.each(this.polygons, polygon => {
-      self.addChild(polygon)
+    this.polygons.forEach(polygon => {
+      this.addChild(polygon)
     })
   }
 
@@ -60,7 +57,7 @@ export class Model extends Entity {
     const viewVertices = []
     const screenVertices = []
 
-    Fn.each(vertices, () => {
+    vertices.forEach(() => {
       worldVertices.push(new Vector3(0, 0, 0))
       viewVertices.push(new Vector3(0, 0, 0))
       screenVertices.push(new Vector3(0, 0, 0))
@@ -74,7 +71,7 @@ export class Model extends Entity {
       const wvs = []
       const vvs = []
       const svs = []
-      Fn.each(vertexIndices, index => {
+      vertexIndices.forEach(index => {
         vs.push(vertices[index])
         wvs.push(worldVertices[index])
         vvs.push(viewVertices[index])

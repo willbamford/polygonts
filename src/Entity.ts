@@ -51,7 +51,7 @@ export class Entity {
   find(tag: string): Entity[] {
     let found: Entity[] = []
     if (Fn.contains(this.tags, tag)) found.push(this)
-    Fn.each(this.children, entity => {
+    this.children.forEach(entity => {
       found = found.concat(entity.find(tag))
     })
     return found

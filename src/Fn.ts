@@ -1,18 +1,4 @@
 export class Fn {
-  static each = <T>(
-    arr: T[],
-    fn: (element: T, index: number) => void,
-  ): void => {
-    if (arr && arr.length > 0) {
-      let i = 0
-      const len = arr.length
-      while (i < len) {
-        fn(arr[i], i)
-        i += 1
-      }
-    }
-  }
-
   static reverseEach = <T>(
     arr: T[],
     fn: (element: T, index: number) => void,

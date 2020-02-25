@@ -25,7 +25,7 @@ export class ShinyBallDemo {
       spikiness: 0.0,
     })
     const model = Model.createFromMesh(mesh)
-    Fn.each(model.polygons, polygon => {
+    model.polygons.forEach(polygon => {
       polygon.material = new Material({
         specular: new Color({ r: 1, g: 1, b: 1 }),
         shininess: 10,
@@ -36,7 +36,12 @@ export class ShinyBallDemo {
     const height = 480
     const aspectRatio = width / height
 
-    const surface = new SvgSurface({
+    // const surface = new SvgSurface({
+    //   container,
+    //   width,
+    //   height,
+    // })
+    const surface = new CanvasSurface({
       container,
       width,
       height,

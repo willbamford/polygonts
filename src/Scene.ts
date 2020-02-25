@@ -43,23 +43,22 @@ export class Scene {
   }
 
   _revalidateFromChildren(children: EntityType[]) {
-    const self = this
-    Fn.each(children, (entity: EntityType) => {
+    children.forEach((entity: EntityType) => {
       switch (entity.type) {
         case 'camera':
-          self.cameras.push(entity as Camera)
+          this.cameras.push(entity as Camera)
           break
         case 'light':
-          self.lights.push(entity as Light)
+          this.lights.push(entity as Light)
           break
         case 'polygon':
-          self.polygons.push(entity as Polygon)
+          this.polygons.push(entity as Polygon)
           break
         case 'model':
-          self.models.push(entity as Model)
+          this.models.push(entity as Model)
           break
       }
-      self._revalidateFromChildren(entity.children)
+      this._revalidateFromChildren(entity.children)
     })
   }
 }
