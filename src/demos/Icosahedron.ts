@@ -14,54 +14,51 @@ import {
   CanvasSurface,
   SvgSurface,
 } from '..'
-import { CubeMesh } from '../meshes'
+import { CubeMesh, IcosahedronMesh } from '../meshes'
 
 export class IcosahedronDemo {
   constructor() {
     const container = document.createElement('div')
     document.body.appendChild(container)
 
-    const mesh = CubeMesh.create()
+    // const mesh = IcosahedronMesh.create()
+    const mesh = SphereMesh.create({ levelOfDetail: 0 })
     const model = Model.createFromMesh(mesh)
+    model.polygons.forEach(polygon => {
+      polygon.material = new Material({
+        specular: new Color({ r: 1, g: 1, b: 1 }),
+        shininess: 0,
+        emissive: new Color({ r: 0.1, g: 0.1, b: 0.1 }),
+      })
+    })
 
-    const sceneWidth = 320
-    const sceneHeight = 320
-    const aspectRatio = sceneWidth / sceneHeight
+    const width = 64
+    const height = 64
+    const aspectRatio = width / height
 
-    const surface = new CanvasSurface({
+    const Surface = SvgSurface // CanvasSurface
+    const surface = new Surface({
       container,
-      width: sceneWidth,
-      height: sceneHeight,
+      width,
+      height,
     })
     const scene = new Scene()
     const camera = new PerspectiveCamera({
       aspectRatio,
     })
 
-    const redLight = new Light({
-      color: Color.RED.clone(),
+    const light = new Light({
+      color: new Color({ r: 1, g: 1, b: 1 }), // Color.RED.clone(),
       specular: null,
-      forward: new Vector3(0, 1, 0),
-    })
-
-    const greenLight = new Light({
-      color: Color.GREEN.clone(),
-      specular: null,
-      forward: new Vector3(1, 0, 0),
-    })
-
-    const blueLight = new Light({
-      color: Color.BLUE.clone(),
-      specular: null,
-      forward: new Vector3(0, 0, 1),
+      forward: new Vector3(1, 0.5, 0),
     })
 
     const root = new Entity()
-    root.addChild(model).addChild(camera)
     root
-      .addChild(redLight)
-      .addChild(greenLight)
-      .addChild(blueLight)
+      .addChild(model)
+      .addChild(camera)
+      .addChild(light)
+
     scene.root = root
     scene.revalidate()
 
@@ -70,17 +67,17 @@ export class IcosahedronDemo {
       scene,
     })
 
-    const eye = new Vector3(3, 3, 3)
+    const eye = new Vector3(0, 2, 2)
     const target = new Vector3(0, 0, 0)
     let angle = 0
 
     camera.position = eye
 
-    const frame = delta => {
+    const frame = (delta: number) => {
       angle += delta / 1000
       if (angle > 360) angle -= 360
 
-      model.rotation.setRotation(angle, angle * 0.5, 0)
+      model.rotation.setRotation(0, angle, 0) //  angle * 0.5, 0)
 
       camera.lookAt(target)
       scene.update(delta)

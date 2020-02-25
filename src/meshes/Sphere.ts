@@ -15,13 +15,14 @@ const key = (i1: Int, i2: Int): string => {
 }
 
 export class SphereMesh {
-  static create(opts: SphereMeshParameters): Mesh {
+  static create(opts: SphereMeshParameters = {}): Mesh {
     const icosahedron = IcosahedronMesh.create()
     const vs = icosahedron.vertices
     let fs = icosahedron.faces
     const vertices = vs
     let faces = fs
-    let levelOfDetail = opts.levelOfDetail || 3
+    let levelOfDetail =
+      typeof opts.levelOfDetail !== 'undefined' ? opts.levelOfDetail : 3
     const spikiness = opts.spikiness || 0
 
     const map = {}
