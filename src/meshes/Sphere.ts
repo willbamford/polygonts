@@ -21,11 +21,12 @@ export class SphereMesh {
     let fs = icosahedron.faces
     const vertices = vs
     let faces = fs
-    const levelOfDetail = opts.levelOfDetail || 3
+    let levelOfDetail = opts.levelOfDetail || 3
     const spikiness = opts.spikiness || 0
+
     const map = {}
 
-    const faceFn = (face: Face, faceIndex: Int) => {
+    const faceFn = (face: Face) => {
       const a = vs[face[0]]
       const b = vs[face[1]]
       const c = vs[face[2]]
@@ -78,8 +79,7 @@ export class SphereMesh {
       faces.push([cai, abi, bci])
     }
 
-    let lod = levelOfDetail
-    while (--lod >= 0) {
+    while (--levelOfDetail >= 0) {
       faces = []
       fs.forEach(faceFn)
       fs = faces

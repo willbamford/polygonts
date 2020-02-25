@@ -21,5 +21,7 @@ export { Renderer } from './Renderer'
 export { Scene } from './Scene'
 
 import { ShinyBallDemo } from './demos/ShinyBall'
+import { SpikyBallDemo } from './demos/SpikyBall'
 
-const demo = new ShinyBallDemo()
+// const demo = new ShinyBallDemo()
+const demo = new SpikyBallDemo()
