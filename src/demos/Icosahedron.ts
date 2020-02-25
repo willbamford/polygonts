@@ -48,7 +48,7 @@ export class IcosahedronDemo {
     })
 
     const light = new Light({
-      color: new Color({ r: 1, g: 1, b: 1 }), // Color.RED.clone(),
+      color: new Color({ r: 1, g: 1, b: 1 }),
       specular: null,
       forward: new Vector3(1, 0.5, 0),
     })
