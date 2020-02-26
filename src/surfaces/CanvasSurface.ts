@@ -11,8 +11,8 @@ type CanvasSurfaceParameters = {
 export class CanvasSurface implements Surface {
   width: number
   height: number
-  cx: number
-  cy: number
+  // cx: number
+  // cy: number
 
   container: HTMLElement
   canvas: HTMLCanvasElement
@@ -21,8 +21,6 @@ export class CanvasSurface implements Surface {
   constructor(opts: CanvasSurfaceParameters) {
     this.width = opts.width || 640
     this.height = opts.height || 480
-    this.cx = this.width / 2
-    this.cy = this.height / 2
 
     const canvas = this.createEl('canvas', {
       style: 'background: black',
@@ -66,6 +64,8 @@ export class CanvasSurface implements Surface {
   }
 
   polygon(points: Vector3[], color: Color): void {
+    const cx = this.width * 0.5
+    const cy = this.height * 0.5
     const len = points.length
 
     const ctx = this.context
@@ -73,23 +73,29 @@ export class CanvasSurface implements Surface {
 
     ctx.fillStyle = color.getHexStyle()
     ctx.beginPath()
-    ctx.moveTo(a.x + this.cx, -a.y + this.cy)
+    ctx.moveTo(a.x + cx, -a.y + cy)
     for (let i = 1; i < len; i += 1) {
       a = points[i]
-      ctx.lineTo(a.x + this.cx, -a.y + this.cy)
+      ctx.lineTo(a.x + cx, -a.y + cy)
     }
     ctx.closePath()
     ctx.fill()
   }
 
   line(from: Vector3, to: Vector3, color: Color): void {
+    const cx = this.width * 0.5
+    const cy = this.height * 0.5
     const ctx = this.context
     ctx.strokeStyle = color.getHexStyle()
     ctx.beginPath()
-    ctx.moveTo(from.x + this.cx, -from.x + this.cy)
-    ctx.lineTo(to.x + this.cx, -to.y + this.cy)
+    ctx.moveTo(from.x + cx, -from.x + cy)
+    ctx.lineTo(to.x + cx, -to.y + cy)
     ctx.stroke()
   }
 
   render() {}
+
+  getImageData() {
+    return this.context.getImageData(0, 0, this.width, this.height)
+  }
 }

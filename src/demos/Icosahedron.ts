@@ -15,14 +15,15 @@ import {
   SvgSurface,
 } from '..'
 import { CubeMesh, IcosahedronMesh } from '../meshes'
+import { AsciiSurface } from '../surfaces/AsciiSurface'
 
 export class IcosahedronDemo {
   constructor() {
     const container = document.createElement('div')
     document.body.appendChild(container)
 
-    // const mesh = IcosahedronMesh.create()
-    const mesh = SphereMesh.create({ levelOfDetail: 0 })
+    const mesh = IcosahedronMesh.create()
+    // const mesh = SphereMesh.create({ levelOfDetail: 0 })
     const model = Model.createFromMesh(mesh)
     model.polygons.forEach(polygon => {
       polygon.material = new Material({
@@ -34,9 +35,10 @@ export class IcosahedronDemo {
 
     const width = 64
     const height = 64
-    const aspectRatio = width / height
+    const asciiFudge = 0.75
+    const aspectRatio = (width * asciiFudge) / height
 
-    const Surface = SvgSurface // CanvasSurface
+    const Surface = AsciiSurface // SvgSurface // CanvasSurface
     const surface = new Surface({
       container,
       width,
@@ -88,7 +90,7 @@ export class IcosahedronDemo {
     frame(0)
 
     const engine = new Engine({
-      onTick: function(delta) {
+      onTick: delta => {
         frame(delta)
       },
     })

@@ -15,8 +15,6 @@ const XML_NS = 'http://www.w3.org/2000/xmlns/'
 export class SvgSurface implements Surface {
   width: number
   height: number
-  cx: number
-  cy: number
 
   container: HTMLElement
   svg: SVGSVGElement
@@ -27,8 +25,6 @@ export class SvgSurface implements Surface {
     this.width = opts.width || 640
     this.height = opts.height || 480
 
-    this.cx = this.width / 2
-    this.cy = this.height / 2
     const svg = this.createEl('svg', {
       style:
         'background: black; border: 1px solid #eee; shape-rendering: crispedges',
@@ -74,10 +70,12 @@ export class SvgSurface implements Surface {
   }
 
   polygon(points: Vector3[], color: Color): void {
+    const cx = this.width * 0.5
+    const cy = this.height * 0.5
     let encodedPoints = ''
     points.forEach(point => {
-      const x = point.x + this.cx
-      const y = -point.y + this.cy
+      const x = point.x + cx
+      const y = -point.y + cy
       encodedPoints += `${x},${y} `
     })
     const polygon = this.createEl('polygon', {
