@@ -34,8 +34,8 @@ export class IcosahedronDemo {
     })
 
     const width = 64
-    const height = 64
-    const asciiFudge = 0.75
+    const height = 40
+    const asciiFudge = 0.6
     const aspectRatio = (width * asciiFudge) / height
 
     const Surface = AsciiSurface // SvgSurface // CanvasSurface
@@ -69,7 +69,7 @@ export class IcosahedronDemo {
       scene,
     })
 
-    const eye = new Vector3(0, 2, 2)
+    const eye = new Vector3(0, 1.5, 1.5)
     const target = new Vector3(0, 0, 0)
     let angle = 0
 

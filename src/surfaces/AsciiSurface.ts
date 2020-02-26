@@ -101,7 +101,7 @@ export class AsciiSurface implements Surface {
     const style = [
       'font-family: monospace',
       'font-weight: bold',
-      'font-size: 8px',
+      'font-size: 10px',
       'line-height: 1',
       'white-space: pre',
     ]
@@ -134,7 +134,7 @@ export class AsciiSurface implements Surface {
         const b = imageData.data[i * 4 + 2]
         // const a = imageData.data[i * 4 + 3]
 
-        const v = (r + g + b) / (3 * 255)
+        const v = 1 - (r + g + b) / (3 * 255)
         const idx = Math.floor(v * (palette.length - 1))
         const chars = palette[idx]
         s += chars[Math.floor(Math.random() * chars.length)].c
