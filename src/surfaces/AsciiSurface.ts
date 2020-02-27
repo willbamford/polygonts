@@ -4,6 +4,14 @@ import { Vector3, Color } from '../math'
 
 type PaletteItem = { i: number; c: string; v: number }
 
+const range = (len: number, fn: (i: number) => any) => {
+  const r = []
+  for (let i = 0; i < len; i += 1) {
+    r[i] = fn(i)
+  }
+  return r
+}
+
 const createAsciiPalette = (): PaletteItem[][] => {
   const canvas = document.createElement('canvas')
   canvas.width = 3200
@@ -13,13 +21,22 @@ const createAsciiPalette = (): PaletteItem[][] => {
   const g = canvas.getContext('2d')
 
   const fontSize = 32
-  const numChars = 95
   const asciiOffset = 32
+  const numChars = 128 - 32 // 255=extended ascii (127=standard)
   g.textAlign = 'center'
   g.textBaseline = 'middle'
 
-  for (let i = 0; i < numChars; i += 1) {
-    const char = String.fromCharCode(i + asciiOffset)
+  const deleteCharCode = 127
+  const chars = range(numChars, (i: number) => {
+    const charCode = i + asciiOffset
+    if (charCode !== deleteCharCode) {
+      return String.fromCharCode(i + asciiOffset)
+    }
+    return null
+  }).filter(c => Boolean(c))
+
+  for (let i = 0; i < chars.length; i += 1) {
+    const char = chars[i]
     g.fillStyle = 'black'
     g.font = `bold ${fontSize + 0}px monospace`
     g.fillText(char, i * fontSize + fontSize * 0.5, fontSize * 0.5)
@@ -42,8 +59,8 @@ const createAsciiPalette = (): PaletteItem[][] => {
   }
 
   const results: PaletteItem[] = []
-  for (let i = 0; i < numChars; i += 1) {
-    results.push({ i, c: String.fromCharCode(i + asciiOffset), v: charL(i) })
+  for (let i = 0; i < chars.length; i += 1) {
+    results.push({ i, c: chars[i], v: charL(i) })
   }
 
   const sorted = results.sort((a, b) => {
@@ -138,7 +155,6 @@ export class AsciiSurface implements Surface {
         const idx = Math.floor(v * (palette.length - 1))
         const chars = palette[idx]
         s += chars[Math.floor(Math.random() * chars.length)].c
-        // s += chars[0].c
         i += 1
       }
       s += '\n'
