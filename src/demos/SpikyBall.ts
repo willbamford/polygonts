@@ -26,11 +26,11 @@ export class SpikyBallDemo {
     })
     const model = Model.createFromMesh(mesh)
 
-    const sceneWidth = 640
-    const sceneHeight = 640
+    const sceneWidth = 320
+    const sceneHeight = 320
     const aspectRatio = sceneWidth / sceneHeight
 
-    const surface = new CanvasSurface({
+    const surface = new SvgSurface({
       container,
       width: sceneWidth,
       height: sceneHeight,
@@ -62,7 +62,7 @@ export class SpikyBallDemo {
     root.addChild(model).addChild(camera)
     root
       .addChild(redLight)
-      .addChild(greenLight)
+      // .addChild(greenLight)
       .addChild(blueLight)
     scene.root = root
     scene.revalidate()
@@ -80,12 +80,13 @@ export class SpikyBallDemo {
     camera.position = eye
 
     const frame = delta => {
-      angle += delta / 1000
+      angle += delta / 2000
       if (angle > 360) angle -= 360
 
-      scale = Math.max(1, scale - 0.0005 * delta)
+      // scale = Math.max(1, scale - 0.0005 * delta)
 
-      model.rotation.setRotationY(angle)
+      // model.rotation.setRotationY(angle)
+      model.rotation.setRotation(-angle, angle * 0.5, 0)
       model.scale.setScalar(scale)
 
       camera.lookAt(target)

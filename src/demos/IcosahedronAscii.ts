@@ -17,7 +17,7 @@ import {
 import { CubeMesh, IcosahedronMesh } from '../meshes'
 import { AsciiSurface } from '../surfaces/AsciiSurface'
 
-export class IcosahedronDemo {
+export class IcosahedronAsciiDemo {
   constructor() {
     const container = document.createElement('div')
     document.body.appendChild(container)
@@ -33,12 +33,12 @@ export class IcosahedronDemo {
       })
     })
 
-    const width = 64
-    const height = 40
-    const asciiFudge = 0.6
+    const width = 480
+    const height = 480
+    const asciiFudge = 1 // 0.6
     const aspectRatio = (width * asciiFudge) / height
 
-    const Surface = AsciiSurface // SvgSurface // CanvasSurface
+    const Surface = SvgSurface // CanvasSurface
     const surface = new Surface({
       container,
       width,

@@ -26,8 +26,7 @@ export class SvgSurface implements Surface {
     this.height = opts.height || 480
 
     const svg = this.createEl('svg', {
-      style:
-        'background: black; border: 1px solid #eee; shape-rendering: crispedges',
+      style: 'background: white;', // border: 1px solid #eee;', //  shape-rendering: crispedges',
       width: `${this.width}`,
       height: `${this.height}`,
     })
@@ -78,9 +77,20 @@ export class SvgSurface implements Surface {
       const y = -point.y + cy
       encodedPoints += `${x},${y} `
     })
+
+    const style = [
+      // 'fill: white',
+      `fill: ${color.getHexStyle()}`,
+      `stroke: rgb(0, 0, 0)`,
+      'stroke-width: 1',
+      'stroke-linejoin: bevel',
+    ].join(';')
+
     const polygon = this.createEl('polygon', {
       points: encodedPoints,
-      style: `fill: ${color.getHexStyle()}`,
+      style,
+      // style: `fill: ${color.getHexStyle()}`,
+      // style: `stroke: white; stroke-width: 5`,
     })
     this.svg.appendChild(polygon)
   }
