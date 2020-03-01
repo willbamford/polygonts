@@ -1,13 +1,13 @@
 import { FpsCounter } from './FpsCounter'
 
-type Time = number
+// type Time = number
 
 type EngineParameters = {
-  onTick: (delta: Time) => void
+  onTick: (delta: number) => void
 }
 
 export class Engine {
-  onTick: (delta: Time) => void
+  onTick: (delta: number) => void
   requestId: number
   isRunning: boolean
   lastTime: number | null

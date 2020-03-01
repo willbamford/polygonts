@@ -2,7 +2,8 @@
   "compilerOptions": {
     "lib": ["dom", "es2019"],
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "dist"
   },
-  "include": ["src/**/*", "demos"]
+  "include": ["src/**/*"]
 }
