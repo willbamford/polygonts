@@ -40,9 +40,6 @@ const createAsciiPalette = (): PaletteItem[][] => {
     g.fillStyle = 'black'
     g.font = `bold ${fontSize + 0}px monospace`
     g.fillText(char, i * fontSize + fontSize * 0.5, fontSize * 0.5)
-
-    // g.fillStyle = 'red'
-    // g.strokeRect(i * fontSize, 0, fontSize, fontSize)
   }
 
   const charL = (i: number) => {
@@ -97,7 +94,7 @@ export class AsciiSurface implements Surface {
   canvasSurface: CanvasSurface
 
   asciiContainer: HTMLDivElement
-  asciiPalette: PaletteItem[][]
+  static asciiPalette: PaletteItem[][]
 
   constructor(opts: AsciiSurfaceParams) {
     this.width = opts.width
@@ -111,7 +108,9 @@ export class AsciiSurface implements Surface {
     })
 
     this.container = opts.container
-    this.asciiPalette = createAsciiPalette()
+    if (!AsciiSurface.asciiPalette) {
+      AsciiSurface.asciiPalette = createAsciiPalette()
+    }
 
     this.asciiContainer = document.createElement('div')
 
@@ -127,6 +126,10 @@ export class AsciiSurface implements Surface {
     this.container.appendChild(this.asciiContainer)
   }
 
+  destroy() {
+    this.container.removeChild(this.asciiContainer)
+  }
+
   clear(): void {
     this.canvasSurface.clear()
   }
@@ -140,7 +143,7 @@ export class AsciiSurface implements Surface {
   }
 
   render(): void {
-    const palette = this.asciiPalette
+    const palette = AsciiSurface.asciiPalette
     const imageData = this.canvasSurface.getImageData()
     let i = 0
     let s = ''

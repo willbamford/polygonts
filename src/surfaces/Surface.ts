@@ -11,4 +11,5 @@ export interface Surface {
   polygon(points: Vector3[], color: Color): void
   line(from: Vector3, to: Vector3, color: Color): void
   render(): void
+  destroy(): void
 }

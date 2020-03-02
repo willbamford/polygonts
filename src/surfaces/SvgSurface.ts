@@ -4,7 +4,7 @@ import { Color } from '../math/Color'
 import { Fn } from '..'
 
 type SvgSurfaceParameters = {
-  container: string | HTMLElement
+  container: HTMLElement
   width?: number
   height?: number
 }
@@ -25,21 +25,25 @@ export class SvgSurface implements Surface {
     this.width = opts.width || 640
     this.height = opts.height || 480
 
-    const svg = this.createEl('svg', {
+    this.svg = this.createEl('svg', {
       style: 'background: white;', // border: 1px solid #eee;', //  shape-rendering: crispedges',
       width: `${this.width}`,
       height: `${this.height}`,
     })
-    this.setAttrNS(svg, XML_NS, 'xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    this.setAttrNS(
+      this.svg,
+      XML_NS,
+      'xmlns:xlink',
+      'http://www.w3.org/1999/xlink',
+    )
 
-    const container =
-      typeof opts.container === 'string'
-        ? document.getElementById(opts.container)
-        : opts.container
+    this.container = opts.container
 
-    container.appendChild(svg)
-    this.container = container
-    this.svg = svg
+    this.container.appendChild(this.svg)
+  }
+
+  destroy() {
+    this.container.removeChild(this.svg)
   }
 
   createEl(name: string, attrs: { [id: string]: string }): SVGSVGElement {
@@ -80,9 +84,9 @@ export class SvgSurface implements Surface {
 
     const style = [
       // 'fill: white',
-      `fill: ${color.getHexStyle()}`,
+      `fill: white`, //  ${color.getHexStyle()}`,
       `stroke: rgb(0, 0, 0)`,
-      'stroke-width: 1',
+      'stroke-width: 5',
       'stroke-linejoin: bevel',
     ].join(';')
 

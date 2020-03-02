@@ -39,6 +39,10 @@ export class CanvasSurface implements Surface {
     this.context = canvas.getContext('2d')
   }
 
+  destroy() {
+    this.container.removeChild(this.canvas)
+  }
+
   createEl(name: string, attrs: { [id: string]: string }): HTMLElement {
     const el = document.createElement(name)
     attrs = attrs || {}
